@@ -1,7 +1,5 @@
 FROM centos:7
 
-COPY etc/ /etc/
-
 # update yum
 RUN yum -y update --nogpgcheck; yum clean all
 RUN yum -y install yum-utils
@@ -60,3 +58,5 @@ COPY flyway /usr/local/lib/flyway
 RUN ln -s /usr/local/lib/flyway/flyway /usr/local/bin
 
 RUN mkdir /run/php-fpm
+
+COPY etc/ /etc/
